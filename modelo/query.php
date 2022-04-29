@@ -2,6 +2,59 @@
 require_once("conection.php");
 
 class Query{
+    //USERS
+    //Insert
+    public function insertUser($name, $lastname, $username, $password){
+        $model = new Conection();
+        $connection  = $model->_getConection();
+        $sql = "INSERT INTO user (Name, LastName, Username, Password) VALUES (:nombre, :apellido, :usuario, :contra)";
+        $sentencia= $connection->prepare($sql);
+        $sentencia->bindParam(":nombre", $name);
+        $sentencia->bindParam(":apellido", $lastname);
+        $sentencia->bindParam(":usuario", $username);
+        $sentencia->bindParam(":contra", $password);
+        if(!$sentencia){
+            return false;
+        }else{
+            $sentencia->execute();
+            return true;
+        }
+    }
+
+    //Get one user by username
+    public function getUserWithUsername($username){
+        $model = new Conection();
+        $connection  = $model->_getConection();
+        $sql = "SELECT * FROM user WHERE Username = :user";
+        $sentencia= $connection->prepare($sql);
+        $sentencia->bindParam(":user", $username);
+        if(!$sentencia){
+            return null;
+        }else{
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+            
+        }
+    }
+
+    //Get one user by id
+    public function getUserWithID($id){
+        $model = new Conection();
+        $connection  = $model->_getConection();
+        $sql = "SELECT * FROM user WHERE idUser = :id";
+        $sentencia= $connection->prepare($sql);
+        $sentencia->bindParam(":id", $id);
+        if(!$sentencia){
+            return null;
+        }else{
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+            
+        }
+    }
+
     public function getEventos(){
         $model = new Conection();
         $connection  = $model->_getConection();
@@ -50,63 +103,6 @@ class Query{
             $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
             return $resultado;
             
-        }
-    }
-
-    public function getEventoByName($nameTitulo){
-        $model = new Conection();
-        $connection  = $model->_getConection();
-        $sql = "SELECT IdEvento FROM evento WHERE Titulo = :nameE";
-        $sentencia= $connection->prepare($sql);
-        $sentencia->bindParam(":nameE", $nameTitulo); 
-        if(!$sentencia){
-            return null;
-        }else{
-            $sentencia->execute();
-            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-            return $resultado;
-            
-        }
-    }
-
-    public function getEventoByNameAndId($nameTitulo, $idEvento){
-        $model = new Conection();
-        $connection  = $model->_getConection();
-        $sql = "SELECT IdEvento FROM evento WHERE Titulo = :nameE ";
-        $sql .= $idEvento!=""?"AND idEvento != :id":"";
-        $sentencia= $connection->prepare($sql);
-        $sentencia->bindParam(":nameE", $nameTitulo);
-        if($idEvento != ""){
-            $sentencia->bindParam(":id", $idEvento);
-        }
-
-        if(!$sentencia){
-            return null;
-        }else{
-            $sentencia->execute();
-            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            return $resultado;
-            
-        }
-    }
-
-    public function insertEvento($titulo, $descripcion, $fechaInicio, $fechaFin, $tipoEvento, $maximoPersonas, $banner){
-        $model = new Conection();
-        $connection  = $model->_getConection();
-        $sql = "INSERT INTO evento (Titulo, Descripcion, FechaInicio, FechaFin, TipoEvento, MaximoPersonas, Banner) VALUES (:titulo, :d, :fechaI, :fechaF, :tipo, :maximoP, :banner)";
-        $sentencia= $connection->prepare($sql);
-        $sentencia->bindParam(":titulo", $titulo);
-        $sentencia->bindParam(":d", $descripcion);
-        $sentencia->bindParam(":fechaI", $fechaInicio);
-        $sentencia->bindParam(":fechaF", $fechaFin);
-        $sentencia->bindParam(":tipo", $tipoEvento);
-        $sentencia->bindParam(":maximoP", $maximoPersonas);
-        $sentencia->bindParam(":banner", $banner);
-        if(!$sentencia){
-            return false;
-        }else{
-            $sentencia->execute();
-            return true;
         }
     }
 

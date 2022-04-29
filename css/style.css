@@ -4,6 +4,10 @@
     --color3: #C6D4D8;
     --color5: #F3F4F4;
     --color6: #3F3F3F;
+    --error1: #A60321;
+    --error2: #590212;
+    --error3: #F20544;
+    --error5: #0D0D0D;
 }
 
 *{
@@ -22,7 +26,7 @@
 
 .contenedor-abuelo{
     background-color: var(--color5);
-    padding: 5em;
+    padding: 3em 5em;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -77,4 +81,15 @@ input:focus{
     color: var(--color2);
     border-color: var(--color2);
     background-color: var(--color3);
+}
+
+.contenedor-error{
+    padding: 1em;
+    background-color: none;
+    border: var(--error1) solid 2px;
+    color: var(--error1);
+}
+
+.contenedor-error span{
+    font-weight: bold;
 }

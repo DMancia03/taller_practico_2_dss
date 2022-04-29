@@ -13,10 +13,19 @@ require_once("modelo/settings.php");
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="contenedor">
-    <form action="" method="post" class="contenedor-abuelo">
+    <form action="controlador/userController.php" method="post" class="contenedor-abuelo">
         <div class="contenedor-titulo">
             <h1><?php echo NAME_APP ?> | Sign Up</h1>
         </div>
+        <?php
+        if(isset($_GET["error"])){
+        ?>
+        <div>
+            <p>Error: Algo salio mal.</p>
+        </div>
+        <?php
+        }
+        ?>
         <div class="contenedor-row-2">
             <div class="contenedor-input">
                 <div>
@@ -46,7 +55,7 @@ require_once("modelo/settings.php");
             </div>
         </div>
         <div class="contenedor-btn">
-            <button type="submit" class="btn">Sign Up</button>
+            <button type="submit" name="btnOperacion" value="signup" class="btn">Sign Up</button>
             <a href="index.php" class="btn">Regresar</a>
         </div>
     </form>

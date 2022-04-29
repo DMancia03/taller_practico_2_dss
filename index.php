@@ -4,7 +4,7 @@ require_once("modelo/settings.php");
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="e">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +13,19 @@ require_once("modelo/settings.php");
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="contenedor">
-    <form action="" method="post" class="contenedor-abuelo">
+    <form action="controlador/userController.php" method="post" class="contenedor-abuelo">
         <div class="contenedor-titulo">
             <h1><?php echo NAME_APP ?></h1>
         </div>
+        <?php
+        if(isset($_GET["error"])){
+        ?>
+        <div class="contenedor-error">
+            <p><span>Error:</span> <?php echo $_GET["error"]=="1"?"Credenciales incorrectas.":"Algo salio mal."; ?></p>
+        </div>
+        <?php
+        }
+        ?>
         <div class="contenedor-input">
             <div>
                 <label for="txtUsername">Nombre de usuario:</label>
@@ -30,7 +39,7 @@ require_once("modelo/settings.php");
             <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" required>
         </div>
         <div class="contenedor-btn">
-            <button type="submit" class="btn">Log In</button>
+            <button type="submit" name="btnOperacion" value="login" class="btn">Log In</button>
             <a href="signup.php" class="btn">Sign Up</a>
         </div>
     </form>
