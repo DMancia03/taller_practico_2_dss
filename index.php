@@ -21,17 +21,17 @@ require_once("modelo/settings.php");
             <div>
                 <label for="txtUsername">Nombre de usuario:</label>
             </div>
-            <input type="text" name="txtUsername" id="txtUsername" placeholder="Nombre de usuario">
+            <input type="text" name="txtUsername" id="txtUsername" placeholder="Nombre de usuario" autofocus required>
         </div>
         <div class="contenedor-input">
             <div>
                 <label for="txtPassword">Contraseña:</label>
             </div>
-            <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña">
+            <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" required>
         </div>
         <div class="contenedor-btn">
             <button type="submit" class="btn">Log In</button>
-            <a href="#" class="btn">Sign Up</a>
+            <a href="signup.php" class="btn">Sign Up</a>
         </div>
     </form>
 </body>
