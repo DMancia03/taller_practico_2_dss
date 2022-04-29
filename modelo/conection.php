@@ -1,7 +1,7 @@
 <?php
 
 class Conection{
-
+    //Método conexión
     public function _getConection(){
         //SERVIDOR LOCALHOST
         $user = "root";
