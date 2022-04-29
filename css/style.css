@@ -1,0 +1,74 @@
+:root{
+    --color1: #185F73;
+    --color2: #427D8C;
+    --color3: #C6D4D8;
+    --color5: #F3F4F4;
+    --color6: #3F3F3F;
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor{
+    height: 100vh;
+    background-color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-abuelo{
+    background-color: var(--color5);
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.contenedor-titulo{
+    color: var(--color6);
+    text-align: center;
+}
+
+.contenedor-input{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+input{
+    padding: 1em;
+    border-radius: none;
+    border: var(--color6) solid 2px;
+}
+
+input:focus{
+    outline: none;
+    border-color: var(--color2);
+}
+
+.contenedor-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+}
+
+.btn{
+    display: block;
+    padding: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    color: var(--color6);
+    cursor: pointer;
+    border: var(--color6) solid 2px;
+}
+
+.btn:hover{
+    color: var(--color2);
+    border-color: var(--color2);
+    background-color: var(--color3);
+}

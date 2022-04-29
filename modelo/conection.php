@@ -16,7 +16,6 @@ class Conection{
             echo $e->getMessage(); 
         }
         
-        
         return $conectar;
     }
 }
