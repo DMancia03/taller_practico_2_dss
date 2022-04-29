@@ -93,3 +93,30 @@ input:focus{
 .contenedor-error span{
     font-weight: bold;
 }
+
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color1);
+    align-items: center;
+}
+
+header div{
+    height:100%;
+    padding: 1em;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 900px){
+    header{
+        flex-direction: column;
+    }
+}
