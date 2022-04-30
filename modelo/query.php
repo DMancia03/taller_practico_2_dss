@@ -55,31 +55,28 @@ class Query{
         }
     }
 
-    public function getEventos(){
+    public function insertEvent($name, $date, $desc, $userID){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "SELECT * FROM evento";
-        $sentencia= $connection->prepare($sql);
-
-        if(!$sentencia){
-            return null;
+        $sql = "INSERT INTO event VALUES (null, :name, :date, :desc,'s',:user )";
+        $statement = $connection->prepare($sql); 
+        $statement->bindParam(":name", $name); 
+        $statement->bindParam(":desc", $desc); 
+        $statement->bindParam(":date", $date); 
+        $statement->bindParam(":user", $userID); 
+        if(!$statement){
+            return false;
         }else{
-            $sentencia->execute();
-            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            return $resultado;
-            
+            $statement->execute();
+            return true;
         }
     }
-
-    public function getEventosByCategoria($idCategoria){
+    public function getEventosbyUserID($id){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "SELECT * FROM evento ";
-        $sql .= "INNER JOIN detalle_eventocategoria ";
-        $sql .= "ON evento.idEvento = detalle_eventocategoria.idEvento ";
-        $sql .= "WHERE detalle_eventocategoria.idCategoria = :id";
+        $sql = "SELECT * FROM event WHERE User_idUser = :id ORDER BY `StartDate` ASC";
         $sentencia= $connection->prepare($sql);
-        $sentencia->bindParam(":id", $idCategoria); 
+        $sentencia->bindParam(":id", $id); 
         if(!$sentencia){
             return null;
         }else{
@@ -93,7 +90,7 @@ class Query{
     public function getEventoByID($idEvento){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "SELECT * FROM evento WHERE IdEvento = :id";
+        $sql = "SELECT * FROM event WHERE IdEvent = :id";
         $sentencia= $connection->prepare($sql);
         $sentencia->bindParam(":id", $idEvento); 
         if(!$sentencia){
@@ -106,24 +103,15 @@ class Query{
         }
     }
 
-    public function updateEvento($id, $titulo, $descripcion, $fechaInicio, $fechaFin, $tipoEvento, $maximoPersonas, $banner = ""){
-        //Comprobar banner
-        $bannersql = $banner!=""?", Banner = :banner ":$banner;
+    public function updateEvento($id, $titulo, $descripcion, $fechaInicio){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "UPDATE evento SET Titulo = :titulo, Descripcion = :d, FechaInicio = :fechaI, FechaFin = :fechaI, TipoEvento = :tipo, MaximoPersonas = :maximoP ";
-        $sql .= $bannersql;
-        $sql .= "WHERE idEvento = :id";
+        $sql = "UPDATE event SET name = :titulo, Description = :d, StartDate = :fechaI ";
+        $sql .= "WHERE idEvent = :id";
         $sentencia= $connection->prepare($sql);
         $sentencia->bindParam(":titulo", $titulo);
         $sentencia->bindParam(":d", $descripcion);
         $sentencia->bindParam(":fechaI", $fechaInicio);
-        $sentencia->bindParam(":fechaF", $fechaFin);
-        $sentencia->bindParam(":tipo", $tipoEvento);
-        $sentencia->bindParam(":maximoP", $maximoPersonas);
-        if($banner != ""){
-            $sentencia->bindParam(":banner", $banner);
-        }
         $sentencia->bindParam(":id", $id);
         if(!$sentencia){
             return false;
@@ -133,11 +121,11 @@ class Query{
         }
     }
 
-    public function deleteEvento($id){
+    public function deleteEvent($id){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "DELETE FROM evento ";
-        $sql .= "WHERE idEvento = :id";
+        $sql = "DELETE FROM event ";
+        $sql .= "WHERE idEvent = :id";
         $sentencia= $connection->prepare($sql);
         $sentencia->bindParam(":id", $id);
         if(!$sentencia){

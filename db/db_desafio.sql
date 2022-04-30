@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `calendar_taller`.`User` (
   `Username` VARCHAR(45) NULL,
   `Password` VARCHAR(45) NULL,
   PRIMARY KEY (`idUser`),
-  UNIQUE INDEX `Username_UNIQUE` (`Username` ASC) VISIBLE)
+  UNIQUE INDEX `Username_UNIQUE` (`Username` ASC) )
 ENGINE = InnoDB;
 
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `calendar_taller`.`Event` (
   `Avilable` VARCHAR(1) NOT NULL DEFAULT 's',
   `User_idUser` INT NOT NULL,
   PRIMARY KEY (`idEvent`),
-  INDEX `fk_Event_User_idx` (`User_idUser` ASC) VISIBLE,
+  INDEX `fk_Event_User_idx` (`User_idUser` ASC) ,
   CONSTRAINT `fk_Event_User`
     FOREIGN KEY (`User_idUser`)
     REFERENCES `calendar_taller`.`User` (`idUser`)

@@ -1,0 +1,230 @@
+:root{
+    --color1: #185F73;
+    --color2: #427D8C;
+    --color3: #C6D4D8;
+    --color5: #F3F4F4;
+    --color6: #3F3F3F;
+    --error1: #A60321;
+    --error2: #590212;
+    --error3: #F20544;
+    --error5: #0D0D0D;
+}
+a{
+    font-family: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color:var(--color1) ;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header{
+    width: 90%;
+    height: 95%;
+    background-color: var(--color5);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.appName{
+    text-align: center;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user{
+    text-align: center;
+}
+.user-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1em;
+    align-items: center;
+    margin: 0.5em;
+}
+.user-data div{
+    flex: 1;
+}
+.user-data .buttons{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+
+}
+.buttons .btn{
+    flex: 1;
+    padding: 1em;
+    background-color: var(--color6);
+    color: var(--color5);
+    text-align: center;
+    cursor: pointer;
+}
+.agenda{
+    height: 100%;
+    width: 100%;
+}
+.base-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    grid-template-rows: repeat(1, 1fr);
+}
+.last-event{
+    background-color: var(--color6);
+    height: 100%;
+    padding: 1.5em;
+    color: var(--color5);
+    text-align: center;
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em; 
+    overflow-y: hidden; 
+}
+.fecha{
+    background-color: var(--color2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    
+}
+.datos{
+    text-align: center;
+    padding: 1.2em;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
+}
+.event{
+    display: flex;
+    width: 100%;
+    background-color: var(--color5);
+    color: var(--error5);
+}
+.events{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 100%;
+}
+.upnext-events{
+    padding: 1.2em;
+    grid-column: span 2;
+    overflow-y: hidden;
+    height: 100%;
+    grid-row: span 1;
+}
+.ev-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1.2em; 
+}
+.ev-btns .btn{
+    color: white;
+    background-color: #A60321;
+    padding: 0.6em;
+}
+@media (max-width: 900px) {
+    .base-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }   
+}
+.header-form{
+    grid-column: span 4;
+    width: 100%;
+    text-align: center; 
+}
+.form{
+    grid-column: span 4;
+    width: 100%;
+
+}
+.form form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.form form div{
+    display: flex;
+    flex-direction: column;
+    flex: 1;  width: 100%;
+    padding: 1.2em;
+}
+input[type = "text"], input[type = "date"]{
+    padding: 0.5em;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--color5);
+} 
+textarea{
+    padding: 0.5em;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--color5);
+}
+input[type="submit"]{
+    width: 50%;
+    margin: auto;
+    color: white;
+    background-color: #427D8C;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    padding: 1em;
+    cursor: pointer;
+}
+.btns, .btn{
+    cursor: pointer; 
+}
+.hidden{
+    display: none; 
+}
+.buttons-2{
+    display: flex; 
+    width: 50%; 
+    gap: 1em; 
+    padding: 0.5em; 
+}
+.buttons-2 .btn{
+    flex: 1;
+    padding: 0.5em;
+    background-color: var(--color6);
+    color: var(--color5);
+    text-align: center;
+    cursor: pointer;
+}
