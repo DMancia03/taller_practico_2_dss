@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `calendar_taller`.`User` (
   `Name` VARCHAR(45) NULL,
   `LastName` VARCHAR(45) NULL,
   `Username` VARCHAR(45) NULL,
-  `Password` VARCHAR(45) NULL,
+  `Password` VARCHAR(200) NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE INDEX `Username_UNIQUE` (`Username` ASC) )
 ENGINE = InnoDB;
