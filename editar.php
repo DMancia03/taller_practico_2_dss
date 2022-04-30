@@ -67,19 +67,19 @@ $data = $event->getAnEvent();
                          </div>
                     </div>
                     <form action="controlador/eventController.php?option=update" method="post">
-                        <input type="hidden" name="event" id='event' value="<?=$event->getIdEvento()?>">
-                        <input type="hidden" name="user" id='user'value="<?=$user->getID()?>">    
+                        <input type="hidden" name="event" id='event' value="<?=$event->getIdEvento()?>" required>>
+                        <input type="hidden" name="user" id='user'value="<?=$user->getID()?>" required>>    
                         <div class="inputs">
                             <label for="name">Nombre de evento</label>
-                            <input type="text" name="name" id="name" value="<?=$data['name']?>" disabled>
+                            <input type="text" name="name" id="name" value="<?=$data['name']?>" disabled required>>
                         </div>
                         <div class="inputs">
                             <label for="desc">Descripcion de evento</label>
-                            <textarea id="desc" name="desc" disabled><?=$data['Description']?></textarea>
+                            <textarea id="desc" name="desc" disabled required>><?=$data['Description']?></textarea>
                         </div>
                         <div class="inputs">
                             <label for="date">Fecha de evento</label>
-                            <input type="date" name="date" id='date' value="<?=$data['StartDate']?>" disabled>
+                            <input type="date" name="date" id='date' value="<?=$data['StartDate']?>" disabled required>>
                         </div>
                         <div class="inputs">
                             <input type="submit" value="Guardar" class='hidden' id='sbmt'>
