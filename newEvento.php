@@ -53,14 +53,14 @@ if(isset($_SESSION["user_activo"])){
                 </div>
                 <div class="form">
                     <form action="controlador/eventController.php?option=save" method="post">
-                        <input type="hidden" name="user" value="<?= $_SESSION["user_activo"] ?>" id='user' required>>    
+                        <input type="hidden" name="user" value="<?= $_SESSION["user_activo"] ?>" id='user' required>   
                     <div class="inputs">
                             <label for="name">Nombre de evento</label>
-                            <input type="text" name="name" id="name" required>>
+                            <input type="text" name="name" id="name" required>
                         </div>
                         <div class="inputs">
                             <label for="desc">Descripcion de evento</label>
-                            <textarea id="desc" name="desc" required>></textarea>
+                            <textarea id="desc" name="desc" required></textarea>
                         </div>
                         <div class="inputs">
                             <label for="date">Fecha de evento</label>
