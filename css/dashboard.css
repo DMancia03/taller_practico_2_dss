@@ -34,7 +34,7 @@ body{
     justify-content: center;
 }
 header{
-    width: 100%;
+    width: 80%;
     background-color: var(--color5);
     overflow-x: hidden;
     overflow-y: hidden;
