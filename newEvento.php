@@ -54,7 +54,7 @@ if(isset($_SESSION["user_activo"])){
                 </div>
                 <div class="form">
                     <form action="controlador/eventController.php?option=save" method="post">
-                        <input type="hidden" name="user" value="<?="3"?>" id='user'>    
+                        <input type="hidden" name="user" value="<?= $_SESSION["user_activo"] ?>" id='user'>    
                     <div class="inputs">
                             <label for="name">Nombre de evento</label>
                             <input type="text" name="name" id="name">
