@@ -35,7 +35,7 @@ class Event{
     public function saveEvent(){
         $dbHandler = new Query(); 
         if($dbHandler->insertEvent($this->name, $this->fecha, $this->desc, $this->idUsuario)){
-            echo "Guardado con exito"; 
+            echo true; 
         }
     }
     public function getEventsByUserID(){
@@ -63,7 +63,7 @@ class Event{
         if(is_array($result)){
             return $result; 
         }else{
-            return "Todavia no has creado un evento"; 
+            return "No has selecionado un evento"; 
         }
     }
     public function updateEvent(){

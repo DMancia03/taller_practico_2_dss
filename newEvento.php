@@ -20,7 +20,8 @@ if(isset($_SESSION["user_activo"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear nuevo evento</title>
     <link rel="stylesheet" href="css/dashboard.css">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -53,7 +54,7 @@ if(isset($_SESSION["user_activo"])){
                 </div>
                 <div class="form">
                     <form action="controlador/eventController.php?option=save" method="post">
-                        <input type="hidden" name="user" value="<?="3"?>">    
+                        <input type="hidden" name="user" value="<?="3"?>" id='user'>    
                     <div class="inputs">
                             <label for="name">Nombre de evento</label>
                             <input type="text" name="name" id="name">
@@ -67,12 +68,14 @@ if(isset($_SESSION["user_activo"])){
                             <input type="date" name="date" id='date'>
                         </div>
                         <div class="inputs">
-                            <input type="submit" value="Guardar">
+                            <input type="submit" value="Guardar" id='sbmt'>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </header>
+
+    <script src='js/save.js'></script>
 </body>
 </html>
