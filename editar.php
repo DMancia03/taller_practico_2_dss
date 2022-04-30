@@ -25,7 +25,8 @@ $data = $event->getAnEvent();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear nuevo evento</title>
     <link rel="stylesheet" href="css/dashboard.css">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -66,8 +67,8 @@ $data = $event->getAnEvent();
                          </div>
                     </div>
                     <form action="controlador/eventController.php?option=update" method="post">
-                        <input type="hidden" name="event" value="<?=$event->getIdEvento()?>">
-                        <input type="hidden" name="user" value="<?=$user->getID()?>">    
+                        <input type="hidden" name="event" id='event' value="<?=$event->getIdEvento()?>">
+                        <input type="hidden" name="user" id='user'value="<?=$user->getID()?>">    
                         <div class="inputs">
                             <label for="name">Nombre de evento</label>
                             <input type="text" name="name" id="name" value="<?=$data['name']?>" disabled>
