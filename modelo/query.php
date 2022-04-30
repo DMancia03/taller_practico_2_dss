@@ -74,7 +74,7 @@ class Query{
     public function getEventosbyUserID($id){
         $model = new Conection();
         $connection  = $model->_getConection();
-        $sql = "SELECT * FROM event WHERE User_idUser = :id AND StartDate>DATE_SUB(CURDATE(), INTERVAL 1 DAY) ORDER BY `StartDate` ASC";
+        $sql = "SELECT * FROM event WHERE User_idUser = :id  ORDER BY `StartDate` ASC";
         $sentencia= $connection->prepare($sql);
         $sentencia->bindParam(":id", $id); 
         if(!$sentencia){

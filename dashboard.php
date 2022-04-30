@@ -193,6 +193,9 @@ $events = $eventos->getEventsByUserID();
                 </div>
                 <div class="upnext-events">
                     <div class="events">
+                        <div class='title-ev'>
+                            <h3>Todos los eventos</h3>
+                        </div>
                         <?php
                             foreach($events as $event){
                                 if($date!=$event['StartDate']){
@@ -222,11 +225,11 @@ $events = $eventos->getEventsByUserID();
                                     </div>
                                 </div> 
                             EOD; 
-                                if($c==0){
+                                #if($c==0){
                                     echo $eventHTML;
-                                }else{
-                                    $c--; 
-                                }
+                                #}else{
+                                #    $c--; 
+                               # }
                             }
                             
                         

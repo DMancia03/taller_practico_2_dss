@@ -161,7 +161,11 @@ header .user-data{
     background-color: #D9D9D9;
 }
 
+.title-ev{
+    font-size: 2em; 
 
+    padding: 1.2em; 
+}
 
 
 
