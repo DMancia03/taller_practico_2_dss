@@ -50,7 +50,6 @@ if(isset($_SESSION["user_activo"])){
             <div class="base-grid">
                 <div class="header-form">
                     <h2>CREACIÓN DE NUEVO EVENTO</h2>
-
                 </div>
                 <div class="form">
                     <form action="controlador/eventController.php?option=save" method="post">
